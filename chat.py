@@ -50,20 +50,20 @@ hospital="국내 응급실 찾기\nhttps://www.e-gen.or.kr/egen/main.do."
 
 def hospital_command(bot, update):
     print("hospital")
-    update.message.reply_text(text=hospital,
-                              chat_id=update.callback_query.message.chat_id,
-                              message_id=update.callback_query.message.message_id)
+    send(hospital)
 
 diary_writter = ["부산 판붕이"]
 diary_writter.append("취소")
 
 head = 80;
+diary = "생존일기 목록입니다.\n\n"+f'https://m.dcinside.com/board/thepandemic?headid={head}'
 
 def diary_command(bot, update):
     print("diary")
     #button_list = build_button(diary_writter) # make button list
     #show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 1)) # make markup
-    update.message.reply_text("생존일기 목록입니다.\n\n"+f'https://m.dcinside.com/board/thepandemic?headid={head}'.format(update.callback_query.data), reply_markup=show_markup) # reply text with markup
+    #update.message.reply_text("생존일기 목록입니다.\n\n"+f'https://m.dcinside.com/board/thepandemic?headid={head}', reply_markup=show_markup) # reply text with markup
+    send(diary)
 
 def callback_get(bot, update):
     data_selected = update.callback_query.data
@@ -90,7 +90,7 @@ def callback_get(bot, update):
         if "생존일기" in data_selected:
             #button_list = build_button(diary_writter)
             #show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 1))
-            bot.edit_message_text(text="생존일기 목록입니다.\n\n"+f'https://m.dcinside.com/board/thepandemic?headid={head}'.format(update.callback_query.data),
+            bot.edit_message_text(text=diary,
                                   chat_id=update.callback_query.message.chat_id,
                                   message_id=update.callback_query.message.message_id,
                                   reply_markup=show_markup)
