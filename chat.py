@@ -46,7 +46,7 @@ def local_command(bot, update):
     print("local")
     send(data)
 
-hospital="국내 응급실 찾기\nhttps://www.e-gen.or.kr/egen/main.do."
+hospital="국내 응급실 찾기\nhttps://www.e-gen.or.kr/egen/main.do"
 
 def hospital_command(bot, update):
     print("hospital")
