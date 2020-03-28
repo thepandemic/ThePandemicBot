@@ -88,12 +88,12 @@ def callback_get(bot, update):
                               message_id=update.callback_query.message.message_id)
 
         if "생존일기" in data_selected:
+            print("생존일기" == data_selected)
             #button_list = build_button(diary_writter)
             #show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 1))
             bot.edit_message_text(text=diary,
-                                  chat_id=update.callback_query.message.chat_id,
-                                  message_id=update.callback_query.message.message_id,
-                                  reply_markup=show_markup)
+                              chat_id=update.callback_query.message.chat_id,
+                              message_id=update.callback_query.message.message_id)
 
     #for j in diary_writter:
     #    if j == data_selected:
