@@ -61,9 +61,9 @@ head = 80;
 
 def diary_command(bot, update):
     print("diary")
-    button_list = build_button(diary_writter) # make button list
-    show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 1)) # make markup
-    update.message.reply_text("읽고 싶은 일지의 작성자를 선택해주세요.", reply_markup=show_markup) # reply text with markup
+    #button_list = build_button(diary_writter) # make button list
+    #show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 1)) # make markup
+    update.message.reply_text("생존일기 목록입니다.\n\n"+f'https://m.dcinside.com/board/thepandemic?headid={head}'.format(update.callback_query.data), reply_markup=show_markup) # reply text with markup
 
 def callback_get(bot, update):
     data_selected = update.callback_query.data
