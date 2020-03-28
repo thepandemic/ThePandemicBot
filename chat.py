@@ -90,7 +90,7 @@ def callback_get(bot, update):
         if "생존일기" in data_selected:
             #button_list = build_button(diary_writter)
             #show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 1))
-            bot.edit_message_text(text="생존일기 목록입니다.\n\n"+f'https://m.dcinside.com/board/thepandemic?headid={head}'.format(update.callback_query.data,
+            bot.edit_message_text(text="생존일기 목록입니다.\n\nhttps://m.dcinside.com/board/thepandemic?headid=80".format(update.callback_query.data,
                                   chat_id=update.callback_query.message.chat_id,
                                   message_id=update.callback_query.message.message_id,
                                   reply_markup=show_markup)
