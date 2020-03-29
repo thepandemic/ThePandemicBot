@@ -45,9 +45,9 @@ def main_command(bot, update):
 gall = "판데믹 갤러리입니다.\n\n"+f'https://gall.dcinside.com/mgallery/board/lists?id=thepandemic'
     
 def gall_command(bot, update):
-    bot.edit_message_text(text=data,
-                              chat_id=update.callback_query.message.chat_id,
-                              message_id=update.callback_query.message.message_id)
+    bot.edit_message_text(text=gall,
+                          chat_id=update.callback_query.message.chat_id,
+                          message_id=update.callback_query.message.message_id)
 
 def local_command(bot, update):
     print("local")
