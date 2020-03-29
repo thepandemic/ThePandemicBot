@@ -42,6 +42,13 @@ def main_command(bot, update):
     show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 1)) # make markup
     update.message.reply_text("원하시는 메뉴를 선택해주세요.", reply_markup=show_markup) # reply text with markup
 
+gall = "판데믹 갤러리입니다.\n\n"+f'https://gall.dcinside.com/mgallery/board/lists?id=thepandemic'
+    
+def gall_command(bot, update):
+    bot.edit_message_text(text=data,
+                              chat_id=update.callback_query.message.chat_id,
+                              message_id=update.callback_query.message.message_id)
+
 def local_command(bot, update):
     print("local")
     send(data)
@@ -56,7 +63,7 @@ diary_writter = ["부산 판붕이"]
 diary_writter.append("취소")
 
 head = 80;
-diary = "생존일기 목록입니다.\n\n"+f'https://m.dcinside.com/board/thepandemic?headid={head}'
+diary = "생존일기 목록입니다.\n\n"+f'https://gall.dcinside.com/mgallery/board/lists/?id=thepandemic&sort_type=N&search_head={head}'
 
 def diary_command(bot, update):
     print("diary")
@@ -106,6 +113,12 @@ def callback_get(bot, update):
 
 main_handler = CommandHandler('start', main_command)
 updater.dispatcher.add_handler(main_handler)
+
+gall_handler = CommandHandler('gall', gall_command)
+updater.dispatcher.add_handler(gall_handler)
+
+gallery_handler = CommandHandler('gallery', gall_command)
+updater.dispatcher.add_handler(gallery_handler)
 
 hospital_handler = CommandHandler('hospital', hospital_command)
 updater.dispatcher.add_handler(hospital_handler)
