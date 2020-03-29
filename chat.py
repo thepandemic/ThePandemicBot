@@ -131,10 +131,3 @@ updater.dispatcher.add_handler(CallbackQueryHandler(callback_get))
 
 updater.start_polling(timeout=0, clean=True)
 updater.idle()
-
-#생존일기 = 80
-head = 80;
-keyword = "생존일기"
-
-def ttt():
-    url = ''
