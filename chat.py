@@ -42,6 +42,12 @@ def main_command(bot, update):
     show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 1)) # make markup
     update.message.reply_text("원하시는 메뉴를 선택해주세요.", reply_markup=show_markup) # reply text with markup
 
+help = "/start - 메인메뉴\n/gall or /gallery - 갤러리 가기\n/local - 국내현황\n/hospital - 병원찾기\n/diary - 생존일기"
+    
+def help_command(bot, update):
+    print("help")
+    send(help)
+    
 gall = "판데믹 갤러리입니다.\n\n"+f'https://gall.dcinside.com/mgallery/board/lists?id=thepandemic'
     
 def gall_command(bot, update):
@@ -111,6 +117,9 @@ def callback_get(bot, update):
 
 main_handler = CommandHandler('start', main_command)
 updater.dispatcher.add_handler(main_handler)
+
+help_handler = CommandHandler('help', help_command)
+updater.dispatcher.add_handler(help_handler)
 
 gall_handler = CommandHandler('gall', gall_command)
 updater.dispatcher.add_handler(gall_handler)
